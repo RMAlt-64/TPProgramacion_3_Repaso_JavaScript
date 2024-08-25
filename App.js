@@ -43,8 +43,10 @@
 //     const fs = require('fs');
 //     let personajes = fs.readFileSync('./PersonajesdeGameofThrones.json', 'utf-8')
 //     let data = JSON.parse(personajes);
+//     let idDeUltimo = (data[data.length-1].id);
+//     console.log(idDeUltimo);
 //     const nuevoPersonaje = {
-//         id: data.length,
+//         id: idDeUltimo+1 ,
 //         firstName: 'Ruben',
 //         lastName: 'Almiron',
 //         fullName: 'Almiron Ruben',
@@ -55,18 +57,14 @@
 //     }
 //     data.push(nuevoPersonaje);
 //     console.log(nuevoPersonaje);
-//     const nuevoPersonaje2 = {
-//         id: data.length,
-//         firstName: 'Ignacio',
-//         lastName: 'Faure',
-//         fullName: 'Faure Ignacio',
-//         title: 'Lord of Winterfell',
-//         family: 'House Stark',
-//         image: 'ignacio-faure.jpg',
-//         imageUrl: 'https://thronesapi.com/assets/images/sam.jpg'
-//     }
-//     data.push(nuevoPersonaje2);
-//     console.log(nuevoPersonaje2);
+//     let newArray = JSON.stringify(data)
+//     escribirNuevoJson = fs.writeFile('./PersonajesdeGameofThrones.json',newArray, err => {
+//         if (err) {
+//           console.error(err);
+//         } else {
+//           console.log("file written successfully")
+//         }
+//     });
 // }
 // agregarPersonaje();
 
