@@ -1,3 +1,7 @@
+//Ejercicio 1 
+//Thrones API (https://thronesapi.com/)
+
+
 // async function buscarPersonaje(id){
 //     try {
 //         let respuesta = await fetch (`https://thronesapi.com/api/v2/Characters/${id}`);
@@ -68,20 +72,121 @@
 // }
 // agregarPersonaje();
 
-function  personajesCuyoID(param) {
-    const fs = require('fs');
-    let personajes = fs.readFileSync('./PersonajesdeGameofThrones.json', 'utf-8')
-    let data = JSON.parse(personajes);
-    let resultadoDeFiltrado = data.filter(element => element['id'] > param)
+// function  personajesCuyoID(param) {
+//     const fs = require('fs');
+//     let personajes = fs.readFileSync('./PersonajesdeGameofThrones.json', 'utf-8')
+//     let data = JSON.parse(personajes);
+//     let resultadoDeFiltrado = data.filter(element => element['id'] > param)
     
-    let newArray = JSON.stringify(resultadoDeFiltrado)
-    personajes = fs.writeFile('./PersonajesdeGameofThrones.json',newArray, err => {
-        if (err) {
-          console.error(err);
-        } else {
-          console.log("file written successfully")
-        }
-    });
-    console.log(resultadoDeFiltrado);
+//     let newArray = JSON.stringify(resultadoDeFiltrado)
+//     personajes = fs.writeFile('./PersonajesdeGameofThrones.json',newArray, err => {
+//         if (err) {
+//           console.error(err);
+//         } else {
+//           console.log("file written successfully")
+//         }
+//     });
+//     console.log(resultadoDeFiltrado);
+// }
+// personajesCuyoID(25);
+
+
+//Ejercicio 2
+//FakeStore API ( https://fakestoreapi.com/ )
+
+// async function allProduct() {
+//   let url = "https://fakestoreapi.com/products"
+//   try {
+//     const respuesta = await fetch(url);
+    
+//     if (!respuesta.ok){
+//       throw new Error(`Response status: ${response.status}`)
+//     }
+//     const json = await respuesta.json();
+//     console.log(json);
+//   } catch (error) {
+//     console.error('error.messaje');
+//   }
+// }
+// allProduct();
+
+// async function limitadoOfTheProducts() {
+//   let url = "https://fakestoreapi.com/products?limit=2"
+//   try {
+//     const respuesta = await fetch(url);
+    
+//     if (!respuesta.ok){
+//       throw new Error(`Response status: ${response.status}`)
+//     }
+//     const json = await respuesta.json();
+//     console.log(json);
+//   } catch (error) {
+//     console.error('error.messaje');
+//   }
+  
+// }
+// limitadoOfTheProducts()
+
+// async function agregarProducts() {
+//   let url =('https://fakestoreapi.com/products?limit=3')
+//   try {
+//     fetch(url)
+//     .then(res=> res.json())
+//     .then(json => {
+//       let productos = json;
+//       let idDeUltimo = (productos[productos.length-1].id)+1;
+      
+//       let newProduct = {
+//         id: idDeUltimo,
+//         title: 'Taladro atornillador inalámbrico',
+//         price: 10.5,
+//         description: '13mm DeWalt DCD771C2 20V + accesorio 220V',
+//         image: 'https://www.shutterstock.com/image-photo/hands-caucasian-worker-drilling-wooden-detail-2304268621',
+//         category: 'electronic',
+//         rating: { rate: 4.3, count: 450 }
+//       };
+    
+//       productos.push(newProduct);
+//       let newArry = JSON.stringify(productos);
+      
+//       let fs = require('fs');
+//       fs.writeFileSync('./ProductosVarios.json', newArry);
+//     });
+
+//   } catch (error) {
+//     console.error('error.messaje');
+//   }
+// }
+// agregarProducts();
+
+// async function productoPorId(params) {
+//   let url = 'https://fakestoreapi.com/products';
+//   try {
+//     fetch(url)
+//     .then(res=>res.json())
+//     .then(json=> {
+//       let todosLosProductos = json
+//       let newArray = todosLosProductos.filter((element) => element['id'] == params )
+//       console.log(newArray);
+//     })
+//   } catch (error) {
+//     console.log("Error al tratar de obtener los datos de la API")
+//   }
+// }
+// productoPorId(1);
+
+async function eliminarUnProducto() {
+  let url = 'https://fakestoreapi.com/products/6'
+  try {
+    fetch(url,{method:"DELETE"})
+    .then(res=>res.json())
+    .then(json => {
+      let productos = json;
+      console.log(productos);
+    })
+  } catch (error) {
+    console.log("Error al tratar de obtener los datos de la API")
+  }
+  
 }
-personajesCuyoID(25);
+eliminarUnProducto();
