@@ -16,6 +16,7 @@
 // }
 // buscarPersonaje(6);
 
+
 // async function buscarPersonajes(){
 //     try {
 //         let respuesta = await fetch (`https://thronesapi.com/api/v2/Characters`);
@@ -33,6 +34,7 @@
 // }
 // buscarPersonajes();
 
+
 // function familiaStark(param){
 //     const fs = require('fs');
 //     let personajes = fs.readFileSync('./PersonajesdeGameofThrones.json', 'utf-8')
@@ -48,7 +50,6 @@
 //     let personajes = fs.readFileSync('./PersonajesdeGameofThrones.json', 'utf-8')
 //     let data = JSON.parse(personajes);
 //     let idDeUltimo = (data[data.length-1].id);
-//     console.log(idDeUltimo);
 //     const nuevoPersonaje = {
 //         id: idDeUltimo+1 ,
 //         firstName: 'Ruben',
@@ -60,17 +61,18 @@
 //         imageUrl: 'https://thronesapi.com/assets/images/sam.jpg'
 //     }
 //     data.push(nuevoPersonaje);
-//     console.log(nuevoPersonaje);
-//     let newArray = JSON.stringify(data)
+//     let newArray = JSON.stringify(data);
 //     escribirNuevoJson = fs.writeFile('./PersonajesdeGameofThrones.json',newArray, err => {
-//         if (err) {
-//           console.error(err);
-//         } else {
-//           console.log("file written successfully")
-//         }
+//       if (err) {
+//         console.error(err);
+//       } else {
+//         console.log("file written successfully");
+//       }
 //     });
+//     console.log(newArray);
 // }
 // agregarPersonaje();
+
 
 // function  personajesCuyoID(param) {
 //     const fs = require('fs');
@@ -83,7 +85,7 @@
 //         if (err) {
 //           console.error(err);
 //         } else {
-//           console.log("file written successfully")
+//           console.log("Archivo sobreescribido exitosamente")
 //         }
 //     });
 //     console.log(resultadoDeFiltrado);
@@ -110,7 +112,8 @@
 // }
 // allProduct();
 
-// async function limitadoOfTheProducts() {
+
+// async function limitadoDeProductos() {
 //   let url = "https://fakestoreapi.com/products?limit=2"
 //   try {
 //     const respuesta = await fetch(url);
@@ -123,12 +126,12 @@
 //   } catch (error) {
 //     console.error('error.messaje');
 //   }
-  
 // }
-// limitadoOfTheProducts()
+// limitadoDeProductos();
+
 
 // async function agregarProducts() {
-//   let url =('https://fakestoreapi.com/products?limit=3')
+//   let url =('https://fakestoreapi.com/products')
 //   try {
 //     fetch(url)
 //     .then(res=> res.json())
@@ -159,6 +162,7 @@
 // }
 // agregarProducts();
 
+
 // async function productoPorId(params) {
 //   let url = 'https://fakestoreapi.com/products';
 //   try {
@@ -175,18 +179,15 @@
 // }
 // productoPorId(1);
 
-async function eliminarUnProducto() {
-  let url = 'https://fakestoreapi.com/products/6'
-  try {
-    fetch(url,{method:"DELETE"})
-    .then(res=>res.json())
-    .then(json => {
-      let productos = json;
-      console.log(productos);
-    })
-  } catch (error) {
-    console.log("Error al tratar de obtener los datos de la API")
-  }
-  
-}
-eliminarUnProducto();
+
+// async function eliminarUnProducto() {
+//   let url = 'https://fakestoreapi.com/products/6'
+//   try {
+//     fetch(url,{method:"DELETE"})
+//     .then(res=>res.json())
+//     .then(json => console.log(json))
+//   } catch (error) {
+//     console.log("Error al tratar de obtener los datos de la API")
+//   }
+// }
+// eliminarUnProducto();
