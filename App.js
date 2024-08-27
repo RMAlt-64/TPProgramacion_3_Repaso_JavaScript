@@ -130,37 +130,32 @@
 // limitadoDeProductos();
 
 
-// async function agregarProducts() {
-//   let url =('https://fakestoreapi.com/products')
-//   try {
-//     fetch(url)
-//     .then(res=> res.json())
-//     .then(json => {
-//       let productos = json;
-//       let idDeUltimo = (productos[productos.length-1].id)+1;
-      
-//       let newProduct = {
-//         id: idDeUltimo,
-//         title: 'Taladro atornillador inalámbrico',
-//         price: 10.5,
-//         description: '13mm DeWalt DCD771C2 20V + accesorio 220V',
-//         image: 'https://www.shutterstock.com/image-photo/hands-caucasian-worker-drilling-wooden-detail-2304268621',
-//         category: 'electronic',
-//         rating: { rate: 4.3, count: 450 }
-//       };
-    
-//       productos.push(newProduct);
-//       let newArry = JSON.stringify(productos);
-      
-//       let fs = require('fs');
-//       fs.writeFileSync('./ProductosVarios.json', newArry);
-//     });
+async function agregarProducts() {
+  let url =('https://fakestoreapi.com/products')
+  try {
+    fetch(url)
+    .then(res=> res.json())
+    .then(json => {
+      let productos = json;
+      let idDeUltimo = (productos[productos.length-1].id)+1;
+      let newProduct = {
+        id: idDeUltimo,
+        title: 'Taladro atornillador inalámbrico',
+        price: 10.5,
+        description: '13mm DeWalt DCD771C2 20V + accesorio 220V',
+        image: 'https://www.shutterstock.com/image-photo/hands-caucasian-worker-drilling-wooden-detail-2304268621',
+        category: 'electronic',
+        rating: { rate: 4.3, count: 450 }
+      };
+      productos.push(newProduct);
+      console.log(productos);
+    });
 
-//   } catch (error) {
-//     console.error('error.messaje');
-//   }
-// }
-// agregarProducts();
+  } catch (error) {
+    console.error('error.messaje');
+  }
+}
+agregarProducts();
 
 
 // async function productoPorId(params) {
